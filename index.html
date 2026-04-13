@@ -169,6 +169,13 @@ nav.scrolled{
   animation:fadeUp .7s 1.2s both;
 }
 .hero-tagline b{color:var(--orange);font-weight:500;text-shadow:0 0 10px rgba(247,147,30,.5)}
+.blink-text{
+  animation:glowBlink 1.8s ease-in-out infinite;
+}
+@keyframes glowBlink{
+  0%,100%{opacity:1;text-shadow:0 0 10px rgba(247,147,30,.5),0 0 20px rgba(247,147,30,.3)}
+  50%{opacity:.15;text-shadow:none}
+}
 .hero-stats{
   display:flex;justify-content:center;
   margin-top:60px;border-top:1px solid rgba(255,255,255,.06);
@@ -630,7 +637,7 @@ footer{
         Découvrir nos services
       </a>
     </div>
-    <p class="hero-tagline">Votre partenaire digital — <b>Agence Créative</b></p>
+    <p class="hero-tagline">Votre partenaire digital — <b class="blink-text">Agence Créative</b></p>
     <div class="hero-stats">
       <div class="hero-stat"><span class="hero-stat-num" data-target="50" data-suffix="+">0</span><span class="hero-stat-label">Projets livrés</span></div>
       <div class="hero-stat"><span class="hero-stat-num" data-target="5" data-suffix="+">0</span><span class="hero-stat-label">Années d'expérience</span></div>
