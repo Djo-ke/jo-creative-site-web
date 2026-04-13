@@ -295,59 +295,67 @@ section{padding:120px 60px}
 .step p{font-size:.88rem;color:var(--muted);line-height:1.7;font-weight:300}
 
 /* ─── TESTIMONIALS ─── */
-.testimonials{background:var(--white)}
-.testimonials-inner{max-width:1200px;margin:0 auto}
+.testimonials{background:linear-gradient(180deg,#0A0E1A 0%,#0f1626 100%);position:relative;overflow:hidden}
+.testimonials-inner{max-width:1200px;margin:0 auto;position:relative;z-index:1}
 .testimonials-header{text-align:center;margin-bottom:60px}
+.testimonials-header .section-label{color:var(--orange)}
+.testimonials-header .section-title{color:white}
 .testimonials-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
 .testi-card{
-  background:linear-gradient(145deg,#f8f9ff,#f0f4ff);
-  border:1px solid rgba(27,58,140,.08);
-  border-radius:20px;padding:36px;
+  border-radius:24px;padding:36px;
+  position:relative;overflow:hidden;
   opacity:0;transform:translateY(50px);
-  transition:opacity .6s,transform .6s,box-shadow .3s;
+  transition:opacity .6s,transform .6s,box-shadow .4s;
 }
 .testi-card.revealed{opacity:1;transform:translateY(0)}
-.testi-card:nth-child(2){transition-delay:.1s}
-.testi-card:nth-child(3){transition-delay:.2s}
-.testi-card:nth-child(4){transition-delay:.3s}
-.testi-card:nth-child(5){transition-delay:.4s}
-.testi-card:nth-child(6){transition-delay:.5s}
-.testi-card:hover{box-shadow:0 20px 50px rgba(27,58,140,.1);transform:translateY(-6px)!important}
-.stars{color:var(--orange);font-size:1rem;margin-bottom:18px;letter-spacing:3px}
-.testi-text{font-size:.95rem;font-weight:300;line-height:1.8;color:#374151;margin-bottom:24px;font-style:italic}
+.testi-card:nth-child(1){background:linear-gradient(135deg,#1B3A8C 0%,#2B5CE6 100%)}
+.testi-card:nth-child(2){background:linear-gradient(135deg,#0f4c75 0%,#00C2D1 100%);transition-delay:.1s}
+.testi-card:nth-child(3){background:linear-gradient(135deg,#7b1fa2 0%,#D63AF9 100%);transition-delay:.2s}
+.testi-card:nth-child(4){background:linear-gradient(135deg,#b94800 0%,#F7931E 100%);transition-delay:.3s}
+.testi-card:nth-child(5){background:linear-gradient(135deg,#004d40 0%,#00bfa5 100%);transition-delay:.4s}
+.testi-card:nth-child(6){background:linear-gradient(135deg,#880e4f 0%,#e91e8c 100%);transition-delay:.5s}
+.testi-card::before{
+  content:'';position:absolute;top:-50px;right:-50px;
+  width:160px;height:160px;border-radius:50%;
+  background:rgba(255,255,255,.06);transition:transform .5s;
+}
+.testi-card:hover::before{transform:scale(1.4)}
+.testi-card:hover{transform:translateY(-8px)!important;box-shadow:0 28px 55px rgba(0,0,0,.4)}
+.stars{color:rgba(255,255,255,.9);font-size:1rem;margin-bottom:18px;letter-spacing:3px}
+.testi-text{font-size:.95rem;font-weight:300;line-height:1.8;color:rgba(255,255,255,.82);margin-bottom:24px;font-style:italic;position:relative;z-index:1}
 .testi-author{
   font-family:'Syne',sans-serif;font-weight:700;font-size:.85rem;
-  color:var(--blue);letter-spacing:.05em;
+  color:rgba(255,255,255,.95);letter-spacing:.05em;position:relative;z-index:1;
 }
 
 /* ─── CTA BAND ─── */
 .cta-band{
-  background:linear-gradient(135deg,var(--blue) 0%,#2B5CE6 50%,var(--blue) 100%);
-  background-size:200% 100%;
-  animation:gradientShift 6s ease infinite;
+  background:var(--light);
   padding:100px 60px;text-align:center;position:relative;overflow:hidden;
 }
-@keyframes gradientShift{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
 .cta-band::before{
   content:'';position:absolute;inset:0;
-  background:radial-gradient(ellipse at 50% 0%,rgba(247,147,30,.25),transparent 70%);
+  background:radial-gradient(ellipse at 50% 0%,rgba(27,58,140,.07),transparent 70%);
 }
 .cta-band h2{
   font-family:'Syne',sans-serif;font-weight:800;
-  font-size:clamp(2rem,5vw,3.5rem);color:white;
+  font-size:clamp(2rem,5vw,3.5rem);
+  background:linear-gradient(135deg,var(--blue),var(--cyan));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
   position:relative;margin-bottom:20px;
 }
-.cta-band p{color:rgba(255,255,255,.75);font-weight:300;max-width:480px;margin:0 auto 40px;font-size:1.05rem}
-.btn-white{
+.cta-band p{color:var(--muted);font-weight:300;max-width:480px;margin:0 auto 40px;font-size:1.05rem}
+.btn-cta{
   display:inline-block;padding:18px 50px;
-  background:white;color:var(--blue);
+  background:linear-gradient(135deg,var(--blue),var(--blue-light));
+  color:white;
   font-family:'Syne',sans-serif;font-weight:700;
   font-size:.9rem;letter-spacing:.1em;text-transform:uppercase;
   text-decoration:none;border-radius:60px;
-  box-shadow:0 8px 30px rgba(0,0,0,.2);
+  box-shadow:0 8px 30px rgba(27,58,140,.25);
   transition:transform .3s,box-shadow .3s;position:relative;
 }
-.btn-white:hover{transform:translateY(-4px);box-shadow:0 16px 40px rgba(0,0,0,.3)}
+.btn-cta:hover{transform:translateY(-4px);box-shadow:0 16px 40px rgba(27,58,140,.35)}
 
 /* ─── FOOTER ─── */
 footer{
@@ -445,8 +453,8 @@ footer{
   .stat-number{font-size:2.2rem}
   .services-grid{grid-template-columns:1fr 1fr;gap:16px}
   .svc-card{padding:32px 26px}
-  .process-steps{grid-template-columns:1fr 1fr;gap:20px}
-  .step{padding:30px 16px}
+  .process-steps{grid-template-columns:repeat(2,1fr);gap:16px}
+  .step{padding:32px 20px}
   .testimonials-grid{grid-template-columns:1fr 1fr;gap:16px}
   .testi-card{padding:28px 22px}
   .cta-band{padding:70px 24px}
@@ -707,7 +715,7 @@ footer{
 <div class="cta-band" id="contact">
   <h2>Prêt à propulser<br>votre business ?</h2>
   <p>Contactez-nous dès aujourd'hui et transformons ensemble vos idées en succès numérique.</p>
-  <a href="https://wa.me/0491558137" class="btn-white">Démarrer un projet →</a>
+  <a href="https://wa.me/0491558137" class="btn-cta">Démarrer un projet →</a>
 </div>
 
 <!-- FOOTER -->
