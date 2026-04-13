@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Retouche & Montage Photo Professionnel — JO CRÉATIVE</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --blue:#1B3A8C;--blue-light:#2B5CE6;--orange:#F7931E;
+  --cyan:#00C2D1;--magenta:#D63AF9;--dark:#0A0E1A;
+  --light:#F8F9FE;--white:#FFFFFF;--text:#1a1a2e;--muted:#6B7280;
+  --accent-from:#880e4f;--accent-to:#e91e8c;
+  --accent-rgb:233,30,140;
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Outfit',sans-serif;background:var(--dark);color:white;overflow-x:hidden}
+::-webkit-scrollbar{width:6px}
+::-webkit-scrollbar-track{background:#080d1a}
+::-webkit-scrollbar-thumb{background:linear-gradient(var(--accent-from),var(--accent-to));border-radius:3px}
+
+/* ── NAV ── */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:18px 60px;
+  display:flex;align-items:center;justify-content:space-between;
+  background:rgba(10,14,26,.92);backdrop-filter:blur(20px);
+  border-bottom:1px solid rgba(255,255,255,.05);transition:all .3s}
+.nav-brand{font-family:'Syne',sans-serif;font-weight:800;font-size:1.1rem;
+  letter-spacing:.08em;text-decoration:none;
+  background:linear-gradient(135deg,var(--accent-from),var(--accent-to));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.nav-back{display:flex;align-items:center;gap:8px;padding:9px 20px;border-radius:50px;
+  border:1px solid rgba(255,255,255,.12);font-family:'Syne',sans-serif;font-weight:600;
+  font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;
+  color:rgba(255,255,255,.6);transition:all .3s}
+.nav-back:hover{color:white;border-color:rgba(255,255,255,.3);background:rgba(255,255,255,.04)}
+.nav-back svg{width:15px;height:15px;stroke:currentColor;fill:none;stroke-width:2;
+  stroke-linecap:round;stroke-linejoin:round;transition:transform .3s}
+.nav-back:hover svg{transform:translateX(-3px)}
+
+/* ── HERO ── */
+.hero{min-height:88vh;display:flex;align-items:center;justify-content:center;
+  text-align:center;position:relative;overflow:hidden;padding:130px 40px 80px}
+.hero-glow{position:absolute;width:700px;height:700px;border-radius:50%;
+  background:radial-gradient(circle,rgba(233,30,140,.22),transparent 65%);
+  top:50%;left:50%;transform:translate(-50%,-50%);filter:blur(80px);pointer-events:none}
+.hero-dots{position:absolute;inset:0;
+  background-image:radial-gradient(circle,rgba(255,255,255,.05) 1px,transparent 1px);
+  background-size:40px 40px;
+  mask-image:radial-gradient(ellipse 70% 70% at 50% 50%,black 20%,transparent 100%)}
+.hero-content{position:relative;z-index:2;max-width:820px}
+.hero-badge{display:inline-flex;align-items:center;gap:10px;padding:7px 20px;
+  border-radius:50px;margin-bottom:30px;
+  background:rgba(233,30,140,.1);border:1px solid rgba(233,30,140,.25);
+  animation:fadeUp .6s .1s both}
+.hero-badge span{font-family:'Outfit',sans-serif;font-size:.72rem;letter-spacing:.28em;
+  text-transform:uppercase;color:rgba(255,255,255,.65)}
+.hero-badge em{font-style:normal;display:inline-block;width:8px;height:8px;
+  border-radius:50%;background:linear-gradient(135deg,var(--accent-from),var(--accent-to));
+  box-shadow:0 0 8px rgba(233,30,140,.6)}
+.hero h1{font-family:'Syne',sans-serif;font-weight:800;
+  font-size:clamp(2.5rem,6vw,5rem);line-height:1.05;margin-bottom:20px;
+  animation:fadeUp .7s .2s both}
+.hero h1 span{
+  background:linear-gradient(135deg,var(--accent-from),var(--accent-to));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  filter:drop-shadow(0 0 20px rgba(233,30,140,.5))}
+.hero-desc{font-size:1.05rem;font-weight:300;line-height:1.9;
+  color:rgba(255,255,255,.5);max-width:600px;margin:0 auto 44px;
+  animation:fadeUp .7s .35s both}
+.hero-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;
+  animation:fadeUp .7s .5s both}
+.btn-main{display:inline-flex;align-items:center;gap:10px;padding:15px 36px;
+  background:linear-gradient(135deg,var(--accent-from),var(--accent-to));
+  color:white;font-family:'Syne',sans-serif;font-weight:700;font-size:.85rem;
+  letter-spacing:.1em;text-transform:uppercase;text-decoration:none;border-radius:60px;
+  box-shadow:0 8px 28px rgba(233,30,140,.35);transition:all .3s}
+.btn-main:hover{transform:translateY(-3px);box-shadow:0 14px 36px rgba(233,30,140,.5)}
+.btn-ghost{display:inline-flex;align-items:center;gap:8px;padding:15px 30px;
+  border:1px solid rgba(255,255,255,.15);color:rgba(255,255,255,.6);
+  font-family:'Syne',sans-serif;font-weight:600;font-size:.82rem;
+  letter-spacing:.1em;text-transform:uppercase;text-decoration:none;border-radius:60px;
+  transition:all .3s}
+.btn-ghost:hover{color:white;border-color:rgba(255,255,255,.35);transform:translateY(-3px)}
+.btn-icon{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+
+/* ── SECTIONS ── */
+.section{padding:100px 0}
+.section-inner{max-width:1100px;margin:0 auto;padding:0 60px}
+.section-inner.narrow{max-width:800px}
+.s-label{font-family:'Outfit',sans-serif;font-size:.72rem;letter-spacing:.35em;
+  text-transform:uppercase;color:var(--orange);margin-bottom:12px}
+.s-title{font-family:'Syne',sans-serif;font-weight:800;
+  font-size:clamp(1.8rem,4vw,2.8rem);line-height:1.1;margin-bottom:24px}
+.s-title em{font-style:normal;
+  background:linear-gradient(135deg,var(--accent-from),var(--accent-to));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+
+/* ── POURQUOI NOUS ── */
+.why-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;margin-top:0}
+.why-text p{font-size:1rem;font-weight:300;line-height:1.9;
+  color:rgba(255,255,255,.55);margin-bottom:18px}
+.why-text p:last-child{margin-bottom:0}
+.why-visual{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.why-stat{padding:28px 22px;border-radius:18px;text-align:center;
+  background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);
+  transition:transform .3s,border-color .3s}
+.why-stat:hover{transform:translateY(-4px);border-color:rgba(233,30,140,.25)}
+.why-stat-num{font-family:'Syne',sans-serif;font-weight:800;font-size:2.2rem;
+  background:linear-gradient(135deg,var(--accent-from),var(--accent-to));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  display:block;margin-bottom:6px}
+.why-stat-lbl{font-size:.75rem;letter-spacing:.15em;text-transform:uppercase;
+  color:rgba(255,255,255,.3)}
+
+/* ── CE QUI EST INCLUS ── */
+.inclus-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:40px}
+.inclus-item{display:flex;gap:16px;padding:22px 24px;border-radius:16px;
+  background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);
+  transition:border-color .3s;
+  opacity:0;transform:translateY(20px);transition:opacity .5s,transform .5s,border-color .3s}
+.inclus-item.revealed{opacity:1;transform:translateY(0)}
+.inclus-item:hover{border-color:rgba(233,30,140,.2)}
+.inclus-check{width:32px;height:32px;border-radius:50%;flex-shrink:0;
+  background:linear-gradient(135deg,var(--accent-from),var(--accent-to));
+  display:flex;align-items:center;justify-content:center;
+  font-size:.85rem;font-weight:700;color:white;margin-top:2px}
+.inclus-item strong{font-family:'Syne',sans-serif;font-weight:700;font-size:.95rem;
+  color:rgba(255,255,255,.85);display:block;margin-bottom:6px}
+.inclus-item p{font-size:.85rem;font-weight:300;color:rgba(255,255,255,.4);line-height:1.65}
+
+/* ── PROCESSUS ── */
+.processus-section{background:rgba(255,255,255,.02);
+  border-top:1px solid rgba(255,255,255,.05);
+  border-bottom:1px solid rgba(255,255,255,.05)}
+.proc-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-top:50px}
+.proc-step{position:relative;padding:32px 20px;border-radius:20px;
+  background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);
+  text-align:center;
+  opacity:0;transform:translateY(24px);
+  transition:opacity .5s,transform .5s,border-color .3s}
+.proc-step.revealed{opacity:1;transform:translateY(0)}
+.proc-step:hover{border-color:rgba(233,30,140,.2)}
+.proc-step:nth-child(2){transition-delay:.1s}
+.proc-step:nth-child(3){transition-delay:.2s}
+.proc-step:nth-child(4){transition-delay:.3s}
+.proc-num{width:52px;height:52px;border-radius:50%;
+  background:linear-gradient(135deg,var(--accent-from),var(--accent-to));
+  box-shadow:0 6px 20px rgba(233,30,140,.3);
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Syne',sans-serif;font-weight:800;font-size:1rem;color:white;
+  margin:0 auto 20px}
+.proc-step h4{font-family:'Syne',sans-serif;font-weight:700;font-size:.95rem;
+  color:rgba(255,255,255,.85);margin-bottom:10px}
+.proc-step p{font-size:.83rem;color:rgba(255,255,255,.38);font-weight:300;line-height:1.7}
+.proc-body{text-align:center}
+
+/* ── FAQ ── */
+.faq-list{margin-top:40px;display:flex;flex-direction:column;gap:12px}
+.faq-item{border-radius:16px;background:rgba(255,255,255,.03);
+  border:1px solid rgba(255,255,255,.07);overflow:hidden;
+  transition:border-color .3s}
+.faq-item.open{border-color:rgba(233,30,140,.25)}
+.faq-q{width:100%;display:flex;align-items:center;justify-content:space-between;
+  padding:22px 28px;background:none;border:none;cursor:pointer;
+  font-family:'Syne',sans-serif;font-weight:700;font-size:.95rem;
+  color:rgba(255,255,255,.82);text-align:left;gap:16px}
+.faq-q:hover{color:white}
+.faq-icon{width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:2;
+  stroke-linecap:round;stroke-linejoin:round;flex-shrink:0;transition:transform .3s}
+.faq-item.open .faq-icon{transform:rotate(180deg)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .4s ease,padding .3s}
+.faq-item.open .faq-a{max-height:300px;padding-bottom:20px}
+.faq-a p{padding:0 28px;font-size:.92rem;font-weight:300;
+  color:rgba(255,255,255,.45);line-height:1.8}
+
+/* ── CTA FINAL ── */
+.cta-section{padding:100px 60px;text-align:center;position:relative;overflow:hidden}
+.cta-section::before{content:'';position:absolute;
+  width:500px;height:500px;border-radius:50%;
+  background:radial-gradient(circle,rgba(233,30,140,.12),transparent 65%);
+  top:50%;left:50%;transform:translate(-50%,-50%);filter:blur(60px)}
+.cta-section h2{font-family:'Syne',sans-serif;font-weight:800;
+  font-size:clamp(2rem,4.5vw,3.5rem);line-height:1.1;
+  color:white;margin-bottom:16px;position:relative}
+.cta-section h2 span{
+  background:linear-gradient(135deg,var(--accent-from),var(--accent-to));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.cta-section p{color:rgba(255,255,255,.45);font-weight:300;max-width:500px;
+  margin:0 auto 40px;font-size:1rem;line-height:1.8;position:relative}
+.tarif-note{display:inline-block;padding:10px 24px;border-radius:50px;
+  background:rgba(233,30,140,.1);border:1px solid rgba(233,30,140,.2);
+  font-size:.82rem;letter-spacing:.1em;color:rgba(255,255,255,.55);
+  margin-bottom:36px;position:relative}
+
+/* ── FOOTER ── */
+footer{background:rgba(0,0,0,.3);padding:28px 60px;
+  display:flex;align-items:center;justify-content:space-between;
+  flex-wrap:wrap;gap:16px;border-top:1px solid rgba(255,255,255,.05)}
+footer span{font-size:.8rem;color:rgba(255,255,255,.25)}
+footer b{color:var(--orange)}
+
+/* ── WA ── */
+.wa-float{position:fixed;bottom:28px;right:28px;z-index:999;width:52px;height:52px;
+  border-radius:50%;background:linear-gradient(135deg,#25D366,#128C7E);
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 4px 20px rgba(37,211,102,.4);text-decoration:none;transition:transform .3s}
+.wa-float:hover{transform:scale(1.1)}
+.wa-float svg{width:26px;height:26px;fill:white}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+
+/* ── RESPONSIVE ── */
+@media(max-width:1024px){
+  nav{padding:16px 24px}
+  .section-inner{padding:0 32px}
+  .why-grid{grid-template-columns:1fr;gap:40px}
+  .inclus-grid{grid-template-columns:1fr}
+  .proc-steps{grid-template-columns:1fr 1fr;gap:16px}
+  .cta-section{padding:80px 32px}
+  footer{padding:24px 32px}
+}
+@media(max-width:768px){
+  nav{padding:14px 18px}
+  .hero{padding:110px 20px 60px;min-height:auto}
+  .section-inner{padding:0 20px}
+  .section{padding:70px 0}
+  .why-visual{grid-template-columns:1fr 1fr}
+  .proc-steps{grid-template-columns:1fr;gap:14px}
+  .proc-step:nth-child(2),.proc-step:nth-child(3),.proc-step:nth-child(4){transition-delay:0s}
+  .cta-section{padding:64px 20px}
+  .hero-btns{flex-direction:column;align-items:center}
+  .btn-main,.btn-ghost{width:100%;max-width:280px;justify-content:center}
+  footer{padding:20px 18px;flex-direction:column;text-align:center}
+}
+@media(max-width:480px){
+  .why-visual{grid-template-columns:1fr 1fr}
+  .section{padding:52px 0}
+}
+
+/* ── ALTERNATING SECTION BACKGROUNDS ── */
+.why-section{background:#F8F9FE}
+.why-section .s-label{color:var(--orange)}
+.why-section .s-title{color:var(--blue)}
+.why-section .s-title em{background:linear-gradient(135deg,var(--accent-from),var(--accent-to));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.why-section .why-text p{color:#4B5563}
+.why-section .why-stat{background:white;border-color:rgba(27,58,140,.08)}
+.why-section .why-stat:hover{border-color:rgba(var(--accent-rgb),.25)}
+.why-section .why-stat-lbl{color:var(--muted)}
+
+.processus-section{background:#F8F9FE!important;border-top:none;border-bottom:none}
+.processus-section .s-label{color:var(--orange)}
+.processus-section .s-title{color:var(--blue)}
+.processus-section .s-title em{background:linear-gradient(135deg,var(--accent-from),var(--accent-to));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.processus-section .proc-step{background:white;border-color:rgba(27,58,140,.08)}
+.processus-section .proc-step h4{color:var(--blue)}
+.processus-section .proc-step p{color:var(--muted)}
+
+.cta-section{background:#F8F9FE}
+.cta-section::before{background:radial-gradient(circle,rgba(27,58,140,.06),transparent 65%)}
+.cta-section h2{color:var(--blue)}
+.cta-section p{color:var(--muted)}
+.cta-section .tarif-note{color:#4B5563;background:rgba(27,58,140,.05);border-color:rgba(27,58,140,.1)}
+.cta-section .btn-ghost{color:var(--muted);border-color:rgba(27,58,140,.2)}
+.cta-section .btn-ghost:hover{color:var(--blue);border-color:var(--blue)}
+
+footer{background:#1a1a2e!important;border-top:none}
+
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-brand">JO CRÉATIVE</a>
+  <a href="index.html#services" class="nav-back">
+    <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+    Nos services
+  </a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-glow"></div>
+  <div class="hero-dots"></div>
+  <div class="hero-content">
+    <div class="hero-badge">
+      <em></em>
+      <span>Montage Photo Pro</span>
+    </div>
+    <h1>Jo Créative — <span>📸 Montage Photo Pro</span></h1>
+    <p class="hero-desc">Des visuels professionnels qui valorisent vos produits, votre équipe et votre univers de marque. Retouche, détourage, montage créatif — livrés rapidement en haute définition.</p>
+    <div class="hero-btns">
+      <a href="devis.html" class="btn-main">
+        <svg class="btn-icon" viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+        Demander un devis gratuit
+      </a>
+      <a href="https://wa.me/0491558137" class="btn-ghost">
+        💬 Discutons de votre projet
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- POURQUOI NOUS -->
+<section class="section why-section">
+  <div class="section-inner">
+    <div class="why-grid">
+      <div class="why-text">
+        <p class="s-label">Pourquoi Jo Créative</p>
+        <h2 class="s-title">Une expertise <em>vraiment</em> à votre service</h2>
+        <p>Une mauvaise photo peut détruire l'image d'un excellent produit. À l'inverse, une photo professionnelle peut multiplier par 3 votre taux de conversion en e-commerce ou vos demandes sur les réseaux sociaux.</p>
+<p>Jo Créative traite chaque image avec le même soin : correction colorimétrique précise, détourage propre, composition soignée et cohérence avec votre identité visuelle.</p>
+<p>Résultat : des visuels qui inspirent confiance, qui donnent envie et qui font la différence entre une marque amateur et une marque professionnelle.</p>
+      </div>
+      <div class="why-visual">
+        <div class="why-stat"><span class="why-stat-num">50+</span><span class="why-stat-lbl">Projets livrés</span></div>
+        <div class="why-stat"><span class="why-stat-num">24h</span><span class="why-stat-lbl">Délai de réponse</span></div>
+        <div class="why-stat"><span class="why-stat-num">100%</span><span class="why-stat-lbl">Satisfaction</span></div>
+        <div class="why-stat"><span class="why-stat-num">🇧🇪</span><span class="why-stat-lbl">Basé en Belgique</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CE QUI EST INCLUS -->
+<section class="section inclus-dark-section" style="padding-top:0">
+  <div class="section-inner">
+    <p class="s-label">Ce que vous recevez</p>
+    <h2 class="s-title">Ce qui est <em>inclus</em></h2>
+    <div class="inclus-grid">
+          <div class="inclus-item">
+            <div class="inclus-check">✓</div>
+            <div>
+              <strong>Retouche colorimétrique</strong>
+              <p>Correction de l'exposition, des couleurs, du contraste et de la balance des blancs pour un rendu parfait.</p>
+            </div>
+          </div>
+
+          <div class="inclus-item">
+            <div class="inclus-check">✓</div>
+            <div>
+              <strong>Détourage précis</strong>
+              <p>Suppression ou remplacement de fond avec des contours nets — idéal pour vos photos produits e-commerce.</p>
+            </div>
+          </div>
+
+          <div class="inclus-item">
+            <div class="inclus-check">✓</div>
+            <div>
+              <strong>Lissage & Nettoyage</strong>
+              <p>Suppression d'imperfections, de distractions et d'éléments indésirables dans l'image.</p>
+            </div>
+          </div>
+
+          <div class="inclus-item">
+            <div class="inclus-check">✓</div>
+            <div>
+              <strong>Cohérence de marque</strong>
+              <p>Application de votre charte graphique sur vos visuels : couleurs, filtres et style homogènes.</p>
+            </div>
+          </div>
+
+          <div class="inclus-item">
+            <div class="inclus-check">✓</div>
+            <div>
+              <strong>Formats multiples</strong>
+              <p>Exportation aux formats et dimensions exact pour web, print, Instagram, Facebook, LinkedIn.</p>
+            </div>
+          </div>
+
+          <div class="inclus-item">
+            <div class="inclus-check">✓</div>
+            <div>
+              <strong>Photos produits e-commerce</strong>
+              <p>Fond blanc propre, cadrage cohérent — conformes aux standards des marketplaces.</p>
+            </div>
+          </div>
+
+          <div class="inclus-item">
+            <div class="inclus-check">✓</div>
+            <div>
+              <strong>Compositions créatives</strong>
+              <p>Montages créatifs pour vos campagnes publicitaires, couvertures ou visuels promotionnels.</p>
+            </div>
+          </div>
+
+          <div class="inclus-item">
+            <div class="inclus-check">✓</div>
+            <div>
+              <strong>Livraison rapide</strong>
+              <p>Retours en 24 à 48h pour les petits volumes. Fichiers HD livrés par lien de téléchargement sécurisé.</p>
+            </div>
+          </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESSUS -->
+<section class="section processus-section">
+  <div class="section-inner">
+    <p class="s-label">Comment ça se passe</p>
+    <h2 class="s-title">Notre <em>processus</em> en 4 étapes</h2>
+    <div class="proc-steps">
+          <div class="proc-step">
+            <div class="proc-num">01</div>
+            <div class="proc-body">
+              <h4>Réception & Brief</h4>
+              <p>Vous nous envoyez vos photos et précisez le rendu souhaité : fond, style, usage prévu.</p>
+            </div>
+          </div>
+
+          <div class="proc-step">
+            <div class="proc-num">02</div>
+            <div class="proc-body">
+              <h4>Traitement professionnel</h4>
+              <p>Retouche soignée de chaque image avec attention aux détails et à votre identité visuelle.</p>
+            </div>
+          </div>
+
+          <div class="proc-step">
+            <div class="proc-num">03</div>
+            <div class="proc-body">
+              <h4>Validation</h4>
+              <p>Vous visualisez les résultats et nous communiquez vos ajustements éventuels.</p>
+            </div>
+          </div>
+
+          <div class="proc-step">
+            <div class="proc-num">04</div>
+            <div class="proc-body">
+              <h4>Livraison HD</h4>
+              <p>Fichiers haute définition livrés dans tous les formats demandés, prêts à l'emploi.</p>
+            </div>
+          </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section">
+  <div class="section-inner narrow">
+    <p class="s-label">Vos questions</p>
+    <h2 class="s-title">Questions <em>fréquentes</em></h2>
+    <div class="faq-list">
+          <div class="faq-item">
+            <button class="faq-q" onclick="toggleFaq(this)">
+              Dans quels formats me livrez-vous les photos ?
+              <svg class="faq-icon" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="faq-a"><p>Nous livrons en JPEG haute qualité, PNG (avec ou sans fond transparent) et dans les dimensions exactes dont vous avez besoin.</p></div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-q" onclick="toggleFaq(this)">
+              Combien de photos pouvez-vous traiter en même temps ?
+              <svg class="faq-icon" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="faq-a"><p>Il n'y a pas de limite. Pour les grands volumes (plus de 50 images), nous définissons ensemble un planning de livraison adapté.</p></div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-q" onclick="toggleFaq(this)">
+              Puis-je vous envoyer des photos prises avec mon smartphone ?
+              <svg class="faq-icon" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="faq-a"><p>Oui, nous travaillons avec tout type de source. Cependant, une photo de meilleure qualité donnera toujours un meilleur résultat final.</p></div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-q" onclick="toggleFaq(this)">
+              Faites-vous aussi de la création d'image de A à Z ?
+              <svg class="faq-icon" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="faq-a"><p>Oui, nous pouvons créer des visuels composites à partir de plusieurs éléments, des illustrations ou des montages créatifs pour vos campagnes.</p></div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-q" onclick="toggleFaq(this)">
+              Quel est le délai de livraison ?
+              <svg class="faq-icon" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="faq-a"><p>Pour 1 à 10 photos, nous livrons généralement sous 24h. Pour des volumes plus importants, comptez 48 à 72h. Un délai express peut être convenu si nécessaire.</p></div>
+          </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <h2>Prêt à <span>démarrer ?</span></h2>
+  <p>Contactez-nous dès aujourd'hui pour discuter de votre projet. Devis gratuit et personnalisé sous 24h, sans engagement.</p>
+  <div class="tarif-note">💰 Tarif sur devis personnalisé — à partir de 50 € — tarif au volume disponible</div><br><br>
+  <div class="hero-btns">
+    <a href="devis.html" class="btn-main">
+      <svg class="btn-icon" viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+      Démarrer mon projet
+    </a>
+    <a href="index.html#services" class="btn-ghost">← Voir tous les services</a>
+  </div>
+</section>
+
+<footer>
+  <span>© 2026 <b>Jo Créative</b>. Tous droits réservés.</span>
+  <span>🇧🇪 Belgique — L'art de propulser votre business sur le web</span>
+</footer>
+
+<a href="https://wa.me/0491558137" class="wa-float" title="WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<script>
+// FAQ toggle
+function toggleFaq(btn) {
+  const item = btn.parentElement;
+  item.classList.toggle('open');
+}
+
+// Scroll reveal
+const ro = new IntersectionObserver(entries => {
+  entries.forEach(e => { if(e.isIntersecting) { e.target.classList.add('revealed'); ro.unobserve(e.target); } });
+}, {threshold: .1});
+document.querySelectorAll('.inclus-item, .proc-step').forEach(el => ro.observe(el));
+</script>
+</body>
+</html>
