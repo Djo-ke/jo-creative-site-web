@@ -99,7 +99,6 @@ nav.scrolled{
   letter-spacing:.3em;text-transform:uppercase;color:var(--orange);
   margin-top:28px;margin-bottom:0;
   animation:fadeUp .8s .3s both;
-  text-shadow:0 0 14px rgba(247,147,30,.8),0 0 35px rgba(247,147,30,.35);
 }
 .hero h1{
   font-family:'Syne',sans-serif;font-weight:800;
@@ -123,24 +122,11 @@ nav.scrolled{
   -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
   filter:drop-shadow(0 0 12px rgba(247,147,30,.7)) drop-shadow(0 0 30px rgba(214,58,249,.5)) drop-shadow(0 0 60px rgba(247,147,30,.3));
 }
-.hero h1 .word-creative .cl{
-  display:inline-block;
-  opacity:0;
-  transform:translateY(40px) rotate(8deg);
-  animation:letterIn .5s cubic-bezier(.22,1,.36,1) forwards;
-  animation-delay:calc(.6s + var(--i) * .07s);
-}
-@keyframes letterIn{
-  0%{opacity:0;transform:translateY(40px) rotate(8deg) scale(.8)}
-  60%{opacity:1;transform:translateY(-6px) rotate(-2deg) scale(1.05)}
-  100%{opacity:1;transform:translateY(0) rotate(0deg) scale(1)}
-}
 .hero-sub{
   font-family:'Outfit',sans-serif;font-size:1.05rem;font-weight:300;
-  letter-spacing:.15em;text-transform:uppercase;color:rgba(255,255,255,.85);
+  letter-spacing:.15em;text-transform:uppercase;color:rgba(255,255,255,.55);
   margin-bottom:50px;
   animation:fadeUp .8s .5s both;
-  text-shadow:0 0 16px rgba(0,194,209,.6),0 0 40px rgba(0,194,209,.25);
 }
 .hero-btns{
   display:flex;gap:18px;justify-content:center;flex-wrap:wrap;
@@ -584,7 +570,7 @@ footer{
   </div>
   <div class="hero-content">
 
-    <h1><span class="word-jo">JO</span> <span class="word-creative"><span class="cl" style="--i:0">C</span><span class="cl" style="--i:1">R</span><span class="cl" style="--i:2">É</span><span class="cl" style="--i:3">A</span><span class="cl" style="--i:4">T</span><span class="cl" style="--i:5">I</span><span class="cl" style="--i:6">V</span><span class="cl" style="--i:7">E</span></span></h1>
+    <h1><span class="word-jo">JO</span> <span class="word-creative">CRÉATIVE</span></h1>
     <p class="hero-sub">Développeur & Designer Web</p>
     <div class="hero-btns">
       <a href="#services" class="btn-primary">Découvrir nos services</a>
