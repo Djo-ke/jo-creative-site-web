@@ -210,6 +210,27 @@ section{padding:120px 60px}
   font-size:.78rem;letter-spacing:.35em;text-transform:uppercase;
   color:var(--orange);margin-bottom:14px;
 }
+
+/* ─── SERVICES BADGE ─── */
+.services-badge{
+  display:inline-flex;align-items:center;gap:16px;
+  padding:18px 44px;border-radius:50px;
+  background:rgba(247,147,30,.08);
+  border:1px solid rgba(247,147,30,.3);
+  box-shadow:0 0 30px rgba(247,147,30,.2),0 0 60px rgba(247,147,30,.1);
+  margin-bottom:24px;
+  font-family:'Syne',sans-serif;font-weight:700;font-size:1.8rem;
+  letter-spacing:.2em;text-transform:uppercase;
+  color:var(--orange);
+  text-shadow:0 0 16px rgba(247,147,30,.6);
+}
+.services-badge-dot{
+  width:10px;height:10px;border-radius:50%;
+  background:var(--orange);
+  box-shadow:0 0 10px var(--orange),0 0 20px rgba(247,147,30,.5);
+  animation:dotPulse 2s ease-in-out infinite;
+}
+.services-badge-dot:last-child{animation-delay:.5s}
 .section-title{
   font-family:'Syne',sans-serif;font-weight:800;
   font-size:clamp(2rem,5vw,3.5rem);line-height:1.1;
@@ -449,7 +470,7 @@ footer{
 .mobile-menu{
   display:none;
   position:fixed;inset:0;z-index:99;
-  background:rgba(255,255,255,.97);backdrop-filter:blur(20px);
+  background:rgba(6,9,18,.97);backdrop-filter:blur(20px);
   flex-direction:column;align-items:center;justify-content:center;gap:32px;
   opacity:0;transition:opacity .35s ease;
 }
@@ -457,7 +478,7 @@ footer{
 .mobile-menu a{
   font-family:'Syne',sans-serif;font-weight:700;font-size:1.6rem;
   letter-spacing:.08em;text-transform:uppercase;text-decoration:none;
-  color:var(--blue);transition:color .2s;
+  color:rgba(255,255,255,.85);transition:color .2s;
 }
 .mobile-menu a:hover{color:var(--orange)}
 .mobile-menu .mob-cta{
@@ -668,8 +689,12 @@ footer{
   <div class="services-bg"></div>
   <div class="services-header">
     <div>
-      <p class="section-label">Nos expertises</p>
-      <h2 class="section-title">Ce que nous<br><em>créons pour vous</em></h2>
+      <div class="services-badge">
+        <span class="services-badge-dot"></span>
+        <span>Mes services</span>
+        <span class="services-badge-dot"></span>
+      </div>
+      <h2 class="section-title" style="font-size:clamp(2.8rem,6vw,4.5rem);">Ce que nous<br><em>créons pour vous</em></h2>
     </div>
     <p>Des solutions digitales complètes pour propulser votre business sur le web, avec créativité et précision.</p>
   </div>
